@@ -1,34 +1,37 @@
-import { StyleSheet, Text, View } from 'react-native';
+import './gesture-handler';
 
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
+import HomeScreen from './screens/HomeScreen'
+import SearchScreen from './screens/SearchScreen'
+import ResultScreen from './screens/ResultScreen'
+import MovieScreen from './screens/MovieScreen'
 
-function Home() {
-  return (
-    <View>
-      <Text>Home Screen</Text>
-    </View>
-  )
-}
-
-function Settings() {
-  return (
-    <View>
-      <Text>Settings Screen</Text>
-    </View>
-  )
-}
-
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator()
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Settings" component={Settings} />
-      </Tab.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen 
+	  name="Home" 
+	  component={HomeScreen} 
+	/>
+        <Stack.Screen 
+	  name="Search" 
+	  component={SearchScreen} 
+	/>
+        <Stack.Screen 
+	  name="Result" 
+	  component={ResultScreen}
+	/>
+        <Stack.Screen 
+	  name="Movie" 
+	  component={MovieScreen} 
+	/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
