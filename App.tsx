@@ -24,10 +24,6 @@ export default function App() {
 	  component={SearchScreen} 
 	/>
         <Stack.Screen 
-	  name="Result" 
-	  component={ResultScreen}
-	/>
-        <Stack.Screen 
 	  name="Movie" 
 	  component={MovieScreen} 
 	/>
