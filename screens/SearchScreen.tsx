@@ -2,8 +2,8 @@ import { TextInput, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 
 // implement the function  with fetch and omdb APIS
-async function getMovieData(name) {
-  const URL = `https://www.omdbapi.com/?t=${name}&apikey=996972b0`
+async function getMoviesData(name) {
+  const URL = `https://www.omdbapi.com/?s=${name}&apikey=996972b0`
   try {
     const response = await fetch(URL)
     if (!response.ok) {
@@ -18,10 +18,9 @@ async function getMovieData(name) {
 }
 
 async function SearchButton(navigation, name){
-  const movie = await getMovieData(name)
-  console.log(movie)
-  if (movie.Response !== 'False') {
-    navigation.push('Movie', {movie})
+  const movies = await getMoviesData(name)
+  if (movies.Response !== 'False') {
+    navigation.push('Result', {movies})
   }
 }
 

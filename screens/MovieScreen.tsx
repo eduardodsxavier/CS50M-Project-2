@@ -7,21 +7,32 @@ export default function MovieScreen({ route }) {
   const movie = params.movie
 
   return(
-    <View>
+    <View style={styles.movie}>
       <Image 
         source={{uri: movie.Poster}}
         style={{width: 200, height: 300}} 
       />
-      <Text>Title: {movie.Title}</Text>
-      <Text>Year: {movie.Year}</Text>
-      <Text>Type: {movie.Type}</Text>
-      <Text>Time: {movie.Runtime}</Text>
-      <Text>Genre: {movie.Genre}</Text>
-      <Text>Plot: {movie.Plot}</Text>
+      <Text style={styles.margin}>Title: {movie.Title}</Text>
+      <Text style={styles.margin}>Year: {movie.Year}</Text>
+      <Text style={styles.margin}>Type: {movie.Type}</Text>
+      <Text style={styles.margin}>Time: {movie.Runtime}</Text>
+      <Text style={styles.margin}>Genre: {movie.Genre}</Text>
+      <Text style={styles.margin}>Plot: {movie.Plot}</Text>
       {movie.Ratings.map(source => (
-        <Text key={source.Source}>{source.Source}: {source.Value}</Text>
+        <Text style={styles.margin} key={source.Source}>{source.Source}: {source.Value}</Text>
       )
       )}
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  movie: {
+    marginTop: 20,
+    marginRight: 20,
+    marginLeft: 20,
+  },
+  margin: {
+    marginTop: 10,
+  },
+});

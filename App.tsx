@@ -15,13 +15,17 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
+	<Stack.Screen 
 	  name="Home" 
 	  component={HomeScreen} 
 	/>
         <Stack.Screen 
 	  name="Search" 
 	  component={SearchScreen} 
+	/>
+	<Stack.Screen 
+	  name="Result" 
+	  component={ResultScreen} 
 	/>
         <Stack.Screen 
 	  name="Movie" 
